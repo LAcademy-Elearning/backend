@@ -7,6 +7,7 @@ import notificationRouter from './notification.route'
 import dashboardRouter from './dashboard.route'
 import contactRouter from './contact.route'
 import profileRouter from './profile.route'
+import docsRouter from './docs.route'
 
 const router = express.Router()
 
@@ -23,7 +24,19 @@ const routes: {
 		{ path: '/contact', route: contactRouter },
 		{ path: '/profile', route: profileRouter },
 	]
+
+const devRoutes = [
+	{
+		path: '/docs',
+		route: docsRouter,
+	},
+]
+
 routes.forEach((route) => {
+	router.use(route.path, route.route)
+})
+
+devRoutes.forEach((route) => {
 	router.use(route.path, route.route)
 })
 
