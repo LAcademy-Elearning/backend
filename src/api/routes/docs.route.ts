@@ -8,7 +8,7 @@ const swaggerOptions: swaggerJSDoc.Options = {
 	swaggerDefinition: {
 		openapi: '3.0.0',
 		info: {
-			title: 'LA-academy API Documentation',
+			title: 'LA-academy API ',
 			version: '1.0.0',
 		},	
 		components: {
