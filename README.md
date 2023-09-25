@@ -1,1 +1,1 @@
-Backend of Like US app 
+Backend of LA-acadeny
