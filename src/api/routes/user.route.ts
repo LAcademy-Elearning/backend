@@ -18,6 +18,48 @@ const router = express.Router()
  */
 
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       properties:
+ *         firstName:
+ *           type: string
+ *         lastName:
+ *           type: string
+ *         email:
+ *           type: string
+ *           format: email
+ *         postcode:
+ *           type: string
+ *         password:
+ *           type: string
+ *         username:
+ *           type: string
+ *         phone:
+ *           type: string
+ *         deleted:
+ *           type: boolean
+ *         suspended:
+ *           type: boolean
+ *         emailVerified:
+ *           type: boolean
+ *         phoneVerified:
+ *           type: boolean
+ *         role:
+ *           type: string
+ *         credits:
+ *           type: number
+ *         profile:
+ *           type: string
+ *           description: Reference to a profile (you may need to adjust the type based on the actual type of the reference)
+ *         accessToProfile:
+ *           type: boolean
+ */
+
+
 
 router.post(
 	'/',

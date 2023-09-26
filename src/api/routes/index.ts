@@ -22,7 +22,6 @@ const routes: {
 		{ path: '/notification', route: notificationRouter },
 		{ path: '/dashboard', route: dashboardRouter },
 		{ path: '/contact', route: contactRouter },
-		{ path: '/profile', route: profileRouter },
 	]
 
 const devRoutes = [

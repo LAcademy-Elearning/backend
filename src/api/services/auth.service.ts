@@ -9,6 +9,8 @@ import { generateAppToken, verifyAppToken } from '../helpers/emailToken'
 import mailer from '../helpers/mailer'
 import userService from './user.service'
 
+
+
 const login = async ({
 	email,
 	password,
@@ -61,10 +63,7 @@ const loginAdmin = async ({
 }
 const register = async (body: NewUser) => {
 	const user = await userService.createUser(body)
-
 	const token = await generateAppToken(user.email, 'VERIFY_EMAIL')
-
-
 	return {
 		token: createAuthToken({
 			id: user.id,

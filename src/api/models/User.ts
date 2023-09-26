@@ -15,6 +15,7 @@ export interface IUser {
 	role: string
 	credits: number
 	profile?: Types.ObjectId
+	courses: Types.ObjectId[]
 	accessToProfile: boolean
 }
 
@@ -37,6 +38,7 @@ const schema = new Schema<IUser, UserModel>(
 		deleted: { type: Boolean, default: false, required: true },
 		suspended: { type: Boolean, default: false },
 		credits: { type: Number, default: 0 },
+		courses: { type: [Schema.ObjectId], ref: 'Course' },
 		profile: { type: Schema.ObjectId, ref: 'Profile' },
 	},
 	{

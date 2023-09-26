@@ -6,6 +6,7 @@ export default {
 		lastName: Joi.string().required(),
 		email: Joi.string().email().required(),
 		postcode: Joi.string().required(),
+		password: Joi.string().min(8).max(25).required(),
 		phone: Joi.string().required(),
 	}),
 	userToTradersPerson: Joi.object({
