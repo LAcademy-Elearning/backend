@@ -10,11 +10,9 @@ const schema = new Schema(
                 },
                 content: {
                         type: Schema.Types.Mixed,
-                        required: true,
                 },
                 description: {
                         type: String,
-                        required: true,
                 }
 
         },

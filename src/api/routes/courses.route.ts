@@ -1,6 +1,6 @@
 import express from 'express'
 import validator from '../middlewares/validator'
-import { contactValidation } from '../validations'
+import { courseValidations } from '../validations'
 import { coursesController } from '../controllers'
 
 const router = express.Router()
@@ -15,46 +15,50 @@ const router = express.Router()
  * @swagger
  * components:
  *   schemas:
- *     Contact:
+ *     NewCourse:
  *       type: object
- *       properties:
- *         id:
- *           type: string
- *           format: uuid
- *         firstName:
- *           type: string
- *         lastName:
- *           type: string
- *         email:
- *           type: string
- *           format: email
- *         message:
- *           type: string
  *       required:
- *         - firstName
- *         - lastName
- *         - email
- *         - message
- *
- *     NewContact:
- *       type: object
+ *         - name
+ *         - description
  *       properties:
- *         firstName:
+ *         name:
  *           type: string
- *         lastName:
+ *           description: The name of the course.
+ *         topics:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: An array of names of the topics to be included in the course.
+ *         description:
  *           type: string
- *         email:
- *           type: string
- *           format: email
- *         message:
- *           type: string
- *       required:
- *         - firstName
- *         - lastName
- *         - email
- *         - message
+ *           description: The description of the course.
  */
 
+
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Course:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: The name of the course.
+ *         topics:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: An array of topic IDs related to this course.
+ *         description:
+ *           type: string
+ *           description: The description of the course.
+ *         reviews:
+ *           type: array
+ *           items:
+ *             type: string
+ *           description: An array of course review IDs.
+ */
 
 /**
  * @swagger
@@ -70,7 +74,7 @@ const router = express.Router()
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Contact'
+ *                 $ref: '#/components/schemas/Course'
   *       '400':
  *         description: Bad request
  *         content:
@@ -106,7 +110,7 @@ router.get(
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Contact'
+ *               $ref: '#/components/schemas/Course'
   *       '400':
  *         description: Bad request
  *         content:
@@ -135,14 +139,14 @@ router.get(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/NewContact'
+ *             $ref: '#/components/schemas/NewCourse'
  *     responses:
  *       '201':
  *         description: Contact created
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Contact'
+ *               $ref: '#/components/schemas/Course'
   *       '400':
  *         description: Bad request
  *         content:
@@ -157,13 +161,13 @@ router.get(
  */
 router.post(
     '/',
-    validator.body(contactValidation.createContact),
+    validator.body(courseValidations.createCourse),
     coursesController.createCourse
 )
 
 /**
  * @swagger
- *  /api/v1/course/{id}:
+ * /api/v1/course/{id}:
  *   put:
  *     summary: Update a Course
  *     tags: [Courses]
@@ -179,16 +183,21 @@ router.post(
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/NewContact'
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               description:
+ *                 type: string
  *     responses:
  *       '200':
- *         description: Updated Contact
+ *         description: Updated Course
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Contact'
-  *       '400':
- *         description: Bad request
+ *               $ref: '#/components/schemas/Course'
+ *       '400':
+ *         description: Bad Request
  *         content:
  *           application/json:
  *             schema:
@@ -197,8 +206,20 @@ router.post(
  *                 error:
  *                   type: string
  *               example:
- *                 error:  message
+ *                 error: "message"
+ * components:
+ *   schemas:
+ *     Course:
+ *       type: object
+ *       properties:
+ *         name:
+ *           type: string
+ *           description: The name of the course.
+ *         description:
+ *           type: string
+ *           description: The description of the course.
  */
+
 router.put(
     '/:id',
     coursesController.updateCourses
