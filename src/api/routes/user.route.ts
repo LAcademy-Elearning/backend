@@ -168,20 +168,20 @@ router.get(
 )
 router.post(
 	'/:id/suspend',
-	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+	accessControl(['SUPER_ADMIN', 'ADMIN',]),
 	validator.params({ id: idValidation }),
 	userController.suspendUser
 )
 router.post(
 	'/:id/reinstate',
-	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+	accessControl(['SUPER_ADMIN', 'ADMIN',]),
 	validator.params({ id: idValidation }),
 	userController.reInstateUser
 )
 
 // router.post(
 // 	'/:id/reinstate',
-// 	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+// 	accessControl(['SUPER_ADMIN', 'ADMIN',]),
 // 	validator.params({ id: idValidation }),
 // 	userController.reInstateUser
 // )
@@ -290,7 +290,7 @@ router.put(
     */
 router.delete(
 	'/:id',
-	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+	accessControl(['SUPER_ADMIN', 'ADMIN']),
 	validator.params({ id: idValidation }),
 	userController.deleteUser
 )

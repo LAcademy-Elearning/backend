@@ -13,7 +13,7 @@ const router = express.Router()
  * @swagger
  * tags:
  *   name: Auth
- *   description: API responsible for all authentication services
+ *   description: API responsible for all authentication services 
  */
 
 

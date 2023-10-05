@@ -18,7 +18,7 @@ router.post(
 
 router.get(
 	'/search',
-	accessControl(['STAFF', 'ADMIN', 'SUPER_ADMIN']),
+	accessControl([ 'ADMIN', 'SUPER_ADMIN']),
 	validator.query(paginateValidations.query),
 	notificationController.searchNotification
 )
@@ -65,13 +65,13 @@ router.delete(
 
 router.get(
 	'/:id',
-	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+	accessControl(['SUPER_ADMIN', 'ADMIN']),
 	notificationController.getNotification
 )
 
 router.put(
 	'/:id',
-	accessControl(['SUPER_ADMIN', 'ADMIN', 'STAFF']),
+	accessControl(['SUPER_ADMIN', 'ADMIN']),
 	validator.body(notificationValidations.updateNotification),
 	notificationController.updateNotification
 )

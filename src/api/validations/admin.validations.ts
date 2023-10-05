@@ -3,8 +3,7 @@ import { AdminRoleEnum, NewAdmin } from '../interfaces/Admin'
 
 export default {
 	newAdmin: Joi.object<NewAdmin>({
-		firstName: Joi.string().required(),
-		lastName: Joi.string().required(),
+		name: Joi.string().required(),
 		email: Joi.string().required(),
 		password: Joi.string().required(),
 		phone: Joi.string().required(),
@@ -13,8 +12,7 @@ export default {
 			.required(),
 	}),
 	updateAdmin: Joi.object<Partial<NewAdmin>>({
-		firstName: Joi.string().optional(),
-		lastName: Joi.string().optional(),
+		name: Joi.string().optional(),
 		email: Joi.string().optional(),
 		password: Joi.string().optional(),
 		phone: Joi.string().optional(),

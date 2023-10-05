@@ -1,6 +1,4 @@
 export { default as User, IUser } from './User'
-export { default as Profile } from './Profile'
-export { default as ProfileReview } from './ProfileReview'
 export { default as ClientContact } from './ClientContact'
 export { default as Admin } from './Admin'
 export { default as Notification } from './Notification'

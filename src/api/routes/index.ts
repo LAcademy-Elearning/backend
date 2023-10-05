@@ -6,7 +6,6 @@ import adminRouter from './admin.route'
 import notificationRouter from './notification.route'
 import dashboardRouter from './dashboard.route'
 import contactRouter from './contact.route'
-import profileRouter from './profile.route'
 import docsRouter from './docs.route'
 
 const router = express.Router()

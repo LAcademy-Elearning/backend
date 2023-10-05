@@ -16,9 +16,7 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
 const register = async (req: Request, res: Response, next: NextFunction) => {
 	try {
 		const { body } = req
-
 		const user = await authService.register(body)
-
 		res.status(200).json(user)
 	} catch (err) {
 		next(err)

@@ -11,8 +11,7 @@ export default function tokenGetter(
 ) {
 	const authHeader = req.headers['authorization']
 	if (authHeader && authHeader.startsWith('Bearer ')) {
-		// Remove "Bearer " prefix to get the token
-		req.token = authHeader.substring(7) // Add the token to the request object for later use if needed
+		req.token = authHeader.substring(7) 
 	}
 	next()
 }

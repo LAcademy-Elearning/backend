@@ -41,12 +41,7 @@ const createUser = async (body: NewUser) => {
 			`User with phone ${body.phone} already exists`
 		)
 	}
-	const pw = generateRandomPassword(20);
-	const password = await bcrypt.hash(pw, config.BCRYPT_SALT)
-	await mailer.sendPasswordEmail(
-		body.email,
-		pw
-	)
+	const password = await bcrypt.hash(body.password, config.BCRYPT_SALT)
 	const newUser = new User({
 		...body,
 		password,

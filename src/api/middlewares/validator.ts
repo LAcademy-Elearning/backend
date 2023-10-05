@@ -8,10 +8,8 @@ const validator = {
 		return function callback(req: Request, _: Response, next: NextFunction) {
 			try {
 				const { error } = schema.validate(req.body)
-
 				if (error)
 					throw new APIError(status.BAD_REQUEST, error.details[0].message)
-
 				next()
 			} catch (err) {
 				next(err)
