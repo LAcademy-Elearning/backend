@@ -1,14 +1,14 @@
 import express from 'express'
 import validator from '../middlewares/validator'
 import { contactValidation } from '../validations'
-import { contactController } from '../controllers'
+import { coursesController } from '../controllers'
 
 const router = express.Router()
 /**
  * @swagger
  * tags:
- *   name: Contact
- *   description: API for managing message sent by user to contact the adminstrators
+ *   name: Courses
+ *   description: API for managing operations related to courses
  */
 
 /**
@@ -58,10 +58,10 @@ const router = express.Router()
 
 /**
  * @swagger
- *  /api/v1/contact:
+ *  /api/v1/course:
  *   get:
- *     summary: Get all Contacts
- *     tags: [Contact]
+ *     summary: Get all Courses
+ *     tags: [Courses]
  *     responses:
  *       '200':
  *         description: Successful response
@@ -84,19 +84,19 @@ const router = express.Router()
  *                 error:  message
  */
 router.get(
-	'/',
-	contactController.getAllContacts
+    '/',
+    coursesController.getAllCourses
 )
 /**
  * @swagger
- *  /api/v1/contact/{id}:
+ *  /api/v1/course/{id}:
  *   get:
- *     summary: Get a contact by ID
- *     tags: [Contact]
+ *     summary: Get a course by ID
+ *     tags: [Courses]
  *     parameters:
  *       - name: id
  *         in: path
- *         description: ID of the Contact
+ *         description: ID of the Course
  *         required: true
  *         schema:
  *           type: string
@@ -120,16 +120,16 @@ router.get(
  *                 error:  message
  */
 router.get(
-	'/:id',
-	contactController.getContact
+    '/:id',
+    coursesController.getCourseById
 )
 
 /**
  * @swagger
- *  /api/v1/contact:
+ *  /api/v1/course:
  *   post:
- *     summary: Create a new Contact
- *     tags: [Contact]
+ *     summary: Create a new Course
+ *     tags: [Courses]
  *     requestBody:
  *       required: true
  *       content:
@@ -156,21 +156,21 @@ router.get(
  *                 error:  message
  */
 router.post(
-	'/',
-	validator.body(contactValidation.createContact),
-	contactController.createContact
+    '/',
+    validator.body(contactValidation.createContact),
+    coursesController.createCourse
 )
 
 /**
  * @swagger
- *  /api/v1/contact/{id}:
+ *  /api/v1/course/{id}:
  *   put:
- *     summary: Update a Contact
- *     tags: [Contact]
+ *     summary: Update a Course
+ *     tags: [Courses]
  *     parameters:
  *       - name: id
  *         in: path
- *         description: ID of the Contact
+ *         description: ID of the Course
  *         required: true
  *         schema:
  *           type: string
@@ -200,26 +200,26 @@ router.post(
  *                 error:  message
  */
 router.put(
-	'/:id',
-	contactController.updateContact
+    '/:id',
+    coursesController.updateCourses
 )
 
 /**
     * @swagger
-    *  /api/v1/contact/{id}:
+    *  /api/v1/course/{id}:
     *   delete:
-    *     summary: Delete a Contact
-    *     tags: [Contact]
+    *     summary: Delete a Course
+    *     tags: [Courses]
     *     parameters:
     *       - name: id
     *         in: path
-    *         description: ID of the Contact
+    *         description: ID of the Course
     *         required: true
     *         schema:
     *           type: string
     *     responses:
     *       '204':
-    *         description: Contact deleted
+    *         description: Course deleted
      *       '400':
  *         description: Bad request
  *         content:
@@ -233,8 +233,8 @@ router.put(
  *                 error:  message
     */
 router.delete(
-	'/:id',
-	contactController.deleteContact
+    '/:id',
+    coursesController.deleteCourses
 )
 
 export default router

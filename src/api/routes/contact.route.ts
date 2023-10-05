@@ -7,8 +7,8 @@ const router = express.Router()
 /**
  * @swagger
  * tags:
- *   name: Courses
- *   description: API for managing all operations related to the courses
+ *   name: Contact
+ *   description: API for managing all operations related to the contacts from customers
  */
 
 /**
@@ -61,7 +61,7 @@ const router = express.Router()
  *  /api/v1/contact:
  *   get:
  *     summary: Get all Contacts
- *     tags: [Courses]
+ *     tags: [Contact]
  *     responses:
  *       '200':
  *         description: Successful response
@@ -92,7 +92,7 @@ router.get(
  *  /api/v1/contact/{id}:
  *   get:
  *     summary: Get a contact by ID
- *     tags: [Courses]
+ *     tags: [Contact]
  *     parameters:
  *       - name: id
  *         in: path
@@ -129,7 +129,7 @@ router.get(
  *  /api/v1/contact:
  *   post:
  *     summary: Create a new Contact
- *     tags: [Courses]
+ *     tags: [Contact]
  *     requestBody:
  *       required: true
  *       content:
@@ -166,7 +166,7 @@ router.post(
  *  /api/v1/contact/{id}:
  *   put:
  *     summary: Update a Contact
- *     tags: [Courses]
+ *     tags: [Contact]
  *     parameters:
  *       - name: id
  *         in: path
@@ -209,7 +209,7 @@ router.put(
     *  /api/v1/contact/{id}:
     *   delete:
     *     summary: Delete a Contact
-    *     tags: [Courses]
+    *     tags: [Contact]
     *     parameters:
     *       - name: id
     *         in: path
