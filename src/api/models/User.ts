@@ -12,6 +12,7 @@ export interface IUser {
   emailVerified: boolean;
   phoneVerified: boolean;
   courses: Types.ObjectId[];
+  coursesLevel: Types.ObjectId[];
 }
 
 export interface IUserMethods {
@@ -31,6 +32,7 @@ const schema = new Schema<IUser, UserModel>(
     phone: { type: String, unique: true },
     theme: { type: String, default: "dark" },
     phoneVerified: { type: Boolean, default: false },
+    coursesLevel: { type: [Schema.ObjectId], ref: "UserCourse" },
     courses: { type: [Schema.ObjectId], ref: "Course" },
   },
   {

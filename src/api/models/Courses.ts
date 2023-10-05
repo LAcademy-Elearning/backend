@@ -15,8 +15,11 @@ const schema = new Schema(
                 description: {
                         type: String,
                         required: true,
-                }
-
+                },
+                reviews: {
+                        type: [Schema.ObjectId],
+                        ref:'CourseReview',
+                },
         },
         {
                 timestamps: true,

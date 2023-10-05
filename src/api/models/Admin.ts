@@ -24,7 +24,7 @@ const schema = new Schema<IAdmin>(
     role: {
       type: String,
       enum: AdminRoleEnum,
-      default: "ADMIN", // Set a default value if necessary
+      default: "FACILITATOR",
     },
     email: { type: String, required: true, lowercase: true },
     emailVerified: { type: Boolean, default: false },

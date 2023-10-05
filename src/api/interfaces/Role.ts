@@ -16,7 +16,7 @@ const mapping = Array.from(RoleEnum)
 export const roleGuards = {
 	isRoleGreater: function (role1: Role, role2: Role) {
 		// Every super admin is greater than the other
-		if (role1 === role2 && role1 === 'SUPER_ADMIN') return true
+		if (role1 === role2 && role1 === 'ADMIN') return true
 
 		return mapping[role1] > mapping[role2]
 	},

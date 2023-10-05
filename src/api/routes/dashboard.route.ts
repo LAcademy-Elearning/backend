@@ -6,7 +6,7 @@ const router = express.Router()
 
 router.get(
 	'/stats',
-	accessControl(['SUPER_ADMIN', 'ADMIN']),
+	accessControl(['ADMIN']),
 	dashboardController.stats
 )
 

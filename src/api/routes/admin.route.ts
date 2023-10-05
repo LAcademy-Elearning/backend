@@ -8,14 +8,14 @@ const router = express.Router();
 
 router.post(
   "/",
-  accessControl(["SUPER_ADMIN", "ADMIN"]),
+  accessControl(["ADMIN"]),
   validator.body(adminValidations.newAdmin),
   adminController.createAdmin
 );
 
 router.get(
   "/",
-  accessControl(["SUPER_ADMIN", "ADMIN"]),
+  accessControl(["ADMIN"]),
   adminController.getAllAdmins
 );
 
@@ -28,20 +28,20 @@ router.get(
 
 router.get(
   "/:id",
-  accessControl(["SUPER_ADMIN", "ADMIN"]),
+  accessControl(["ADMIN"]),
   adminController.getAdmin
 );
 
 router.put(
   "/:id",
-  accessControl(["SUPER_ADMIN", "ADMIN"]),
+  accessControl(["ADMIN"]),
   validator.body(adminValidations.updateAdmin),
   adminController.updateAdmin
 );
 
 router.delete(
   "/:id",
-  accessControl(["SUPER_ADMIN"]),
+  accessControl(["ADMIN"]),
   adminController.deleteAdmin
 );
 
